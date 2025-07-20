@@ -1,17 +1,15 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+
 public class CourseService
 {
     public void Divide()
-    {
-        int a = 10;
-        int b = 0;
-        if (b != 0)
-        {
-            int result = a / b;
-        }
-    }
+int a = 10;
+int b = 0;
+if (b != 0)
+{
+    int result = a / b;
 }
 
 public void NullCheck()
