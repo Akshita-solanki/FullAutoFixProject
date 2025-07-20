@@ -3,6 +3,8 @@ import re
 import requests
 from together import Together
 
+from apply_fix import extract_code_block
+
 # CONFIGURATION
 SOURCE_DIR = "CourseApp"
 LOG_FILE = os.path.join(SOURCE_DIR, "logs", "errors.log")
@@ -40,7 +42,8 @@ Please return the fixed version of this block. Don't explain anything — just r
         temperature=0.2,
         max_tokens=512
     )
-    return response.choices[0].message.content.strip()
+    raw = response.choices[0].message.content.strip()
+    return extract_code_block(raw)
 
 def parse_log_line(line):
     match = re.match(

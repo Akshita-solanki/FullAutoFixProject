@@ -1,8 +1,10 @@
 using System;
 
 public static class Helpers
+{
+    public static string Normalize(string input)
+    {
 using System;
-
 namespace BugFixes
 {
     public static class Helpers
@@ -10,18 +12,6 @@ namespace BugFixes
         public static string ToUpperCase(this string input)
         {
             Helpers.Validate(input);
-            return input?.ToUpper();
-        }
-
-        public static void Validate(string input)
-        {
-            if (input == null)
-            {
-                throw new ArgumentNullException(nameof(input), "Value cannot be null.");
-            }
-        }
-    }
-}
             return input.ToUpper();
         }
         public static void Validate(string input)

@@ -12,6 +12,16 @@ HEADERS = {
     "Authorization": f"Bearer {TOGETHER_API_KEY}",
     "Content-Type": "application/json"
 }
+def extract_code_block(text):
+    # Extract code between triple backticks
+    code_blocks = re.findall(r"```(?:csharp)?\s*([\s\S]*?)```", text, re.IGNORECASE)
+    if code_blocks:
+        return code_blocks[0].strip()
+
+    # Fallback: Keep only lines that resemble C# code
+    lines = text.splitlines()
+    code_lines = [line for line in lines if line.strip() and not line.strip().startswith("//") and not re.match(r'^[A-Za-z ]+:', line.strip())]
+    return "\n".join(code_lines).strip()
 
 def call_together_ai(file_path, code_context, error_line, exception, message):
     prompt = f"""
@@ -40,7 +50,8 @@ Return the corrected version of this code block only — no explanation.
         },
     )
     response.raise_for_status()
-    return response.json()["choices"][0]["message"]["content"].strip()
+    raw = response.json()["choices"][0]["message"]["content"].strip()
+    return extract_code_block(raw)
 
 def parse_log_line(line):
     match = re.match(r'\[ERROR\] \[(.*?)\] \[(.*?):(\d+)\] (\w+): (.*)', line)
@@ -55,6 +66,7 @@ def get_code_context_lines(file_path, error_line, context_lines=MAX_CONTEXT_LINE
     start = max(0, error_line - context_lines // 2 - 1)
     end = min(len(lines), error_line + context_lines // 2)
     return lines, start, end, lines[start:end]
+
 
 def apply_patch(file_path, start, end, replacement_block):
     replacement_lines = [line + "\n" if not line.endswith("\n") else line for line in replacement_block.strip().splitlines()]

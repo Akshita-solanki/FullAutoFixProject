@@ -1,19 +1,16 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+
 public class CourseService
 {
-public void Divide()
-{
+    public void Divide()
 int a = 10;
 int b = 1;
-if (b != 0)
 int result = a / b;
-}
+
 public void NullCheck()
 {
-}
-}
     string instructor = null;
     if(instructor != null)
         Console.WriteLine(instructor.Length);
