@@ -1,0 +1,9 @@
+using System;
+
+public static class Helpers
+{
+    public static string Normalize(string input)
+    {
+Here is the corrected code:
+
+return input?.ToUpper(); // input will be null-propagated to null if it's null, avoiding the NullReferenceException

@@ -29,7 +29,7 @@ Here is the code context:
 
 {code_context}
 
-Please return the fixed version of this block. Don't explain anything — just return the corrected code.
+Please return ONLY the corrected code block — no explanation, no markdown, no headers, no comments. Just the fixed code lines that can be pasted directly.
 """
     response = client.chat.completions.create(
         model=MODEL_NAME,

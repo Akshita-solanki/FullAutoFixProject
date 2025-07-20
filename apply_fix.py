@@ -24,7 +24,7 @@ Here is the code context:
 
 {code_context}
 
-Return the corrected version of this code block only — no explanation.
+Please return ONLY the corrected code block — no explanation, no markdown, no headers, no comments. Just the fixed code lines that can be pasted directly.
 """
     response = requests.post(
         "https://api.together.xyz/v1/chat/completions",
