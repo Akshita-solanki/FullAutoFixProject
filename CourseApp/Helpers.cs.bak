@@ -1,24 +1,17 @@
 using System;
 
 public static class Helpers
+{
+    public static string Normalize(string input)
+    {
 Here is the corrected version of the code block:
 
 using System;
 
 namespace BugFixes
 {
-public static class Helpers
-{
-public static string Normalize(string input)
-{
-if (input == null)
-{
-throw new ArgumentNullException(nameof(input), "Value cannot be null.");
-}
-// Rest of the method implementation
-}
-}
-}
+    public static class Helpers
+    {
         public static string ToUpperCase(this string input)
         {
             Helpers.Validate(input);

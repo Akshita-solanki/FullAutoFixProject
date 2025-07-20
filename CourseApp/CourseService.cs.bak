@@ -1,15 +1,16 @@
 using System;
 using System.Linq;
+using System.Collections.Generic;
+
+public class CourseService
+{
+    public void Divide()
 Here is the corrected version of the code block:
 
 ```csharp
 int a = 10;
 int b = 1;
-int result = 0;
-
-if (b != 0)
-    result = a / b;
-```
+int result = a / b;
 
 public void NullCheck()
 {
