@@ -5,7 +5,7 @@ public class CourseController
     {
         try
         {
-            string[] courses = new string[7]; // Increase the size of the array to at least 6 elements
+            string[] courses = new string[6]; // Increase the size of the array
             Console.WriteLine(courses[5]);
         }
         catch (Exception ex)
@@ -14,7 +14,6 @@ public class CourseController
             throw;
         }
     }
-}
 }
     }
 }
