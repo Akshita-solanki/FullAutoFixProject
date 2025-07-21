@@ -5,7 +5,7 @@ public class CourseController
     {
         try
         {
-            string[] courses = new string[6] { "course1", "course2", "course3", "course4", "course5", "course6" };
+            string[] courses = new string[6];
             Console.WriteLine(courses[5]);
         }
         catch (Exception ex)
@@ -14,7 +14,6 @@ public class CourseController
             throw;
         }
     }
-}
 }
     }
 }
