@@ -1,19 +1,18 @@
 using System;
+
 public class CourseController
 {
     public void HandleRequest()
     {
         try
         {
-            string[] courses = new string[6]; // Increase the array size
-            Console.WriteLine(courses[5]);
+            string[] courses = new string[2];
+            Console.WriteLine(courses[5]); // IndexOutOfRangeException
         }
         catch (Exception ex)
         {
             Logger.LogError(ex);
-            throw;
+            throw; // Optionally rethrow or handle as needed
         }
-    }
-}
     }
 }
