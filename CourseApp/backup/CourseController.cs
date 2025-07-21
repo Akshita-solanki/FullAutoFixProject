@@ -3,7 +3,7 @@ public class CourseController
 {
     public void HandleRequest()
     {
-        string[] courses = new string[6] { "course1", "course2", "course3", "course4", "course5", "course6" };
+        string[] courses = new string[6];
         Console.WriteLine(courses[5]);
     }
 }
